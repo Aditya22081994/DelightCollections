@@ -9,11 +9,11 @@
 <body>
 
 <form action="registrationservlet" method="post">
-Name : <input type="text" name="username"/>
-Email : <input type="text" name="email"/>
-Mobile : <input type="text" name="mobile"/>
-Password : <input type="password" name="passone"/>
-Confirm Password : <input type="password" name="passtwo"/>
+Name : <input type="text" name="username"/><br>
+Email : <input type="text" name="email"/><br>
+Password : <input type="password" name="passone"/><br>
+Confirm Password : <input type="password" name="passtwo"/><br>
+Mobile : <input type="text" name="mobile" placeholder="An OTP is sent to this number"/><br>
 <input type="submit" value="Register"/>
 </form>
 

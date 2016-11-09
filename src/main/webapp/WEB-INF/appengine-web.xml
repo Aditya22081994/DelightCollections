@@ -4,6 +4,8 @@
     <version>1.9.38</version>
     <threadsafe>true</threadsafe>
     
+    <sessions-enabled>true</sessions-enabled>
+    
     <env-variables>
     <env-var name="TWILIO_ACCOUNT_SID" value="AC66ec6f28b2bb47850eb89c5b3e1ccc98" />
     <env-var name="TWILIO_AUTH_TOKEN" value="324b994e3f12e20a3d0dd47153d28b34" />

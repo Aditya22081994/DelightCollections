@@ -1,6 +1,7 @@
 package com.Validation;
 
 import java.io.IOException;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,16 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.tools.ant.types.resources.comparators.Date;
-
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
 
 public class RegistrationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
- 
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String name=request.getParameter("username");
@@ -31,7 +29,10 @@ public class RegistrationServlet extends HttpServlet {
 		String keyvalue = "2003"+mobile;
 		Date d = new Date();
 		
-		
+		HttpSession session = request.getSession();
+		session.setAttribute("mobileno",mobile);
+		session.setAttribute("email",email);
+		session.setAttribute("name", name);
 		
 		DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
 		
@@ -45,10 +46,9 @@ public class RegistrationServlet extends HttpServlet {
 		
 		ds.put(customerDetail);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("OtpSend.html");
+		RequestDispatcher rd = request.getRequestDispatcher("smssend");
 		
 		rd.forward(request, response);		
 		
 	}
-
 }
