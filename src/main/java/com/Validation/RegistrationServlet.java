@@ -23,11 +23,9 @@ public class RegistrationServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String mobile = request.getParameter("mobile");
 		String passwordOne = request.getParameter("passone");
-		String passwordTwo = request.getParameter("passtwo");
-		
 	
 		String keyvalue = "2003"+mobile;
-		Date d = new Date();
+		Date date = new Date();
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("mobileno",mobile);
@@ -42,11 +40,11 @@ public class RegistrationServlet extends HttpServlet {
 		customerDetail.setProperty("email",email);
 		customerDetail.setProperty("mobile",mobile);
 		customerDetail.setProperty("password",passwordOne);
-		customerDetail.setProperty("date",d.toString());
+		customerDetail.setProperty("date",date.toString());
 		
 		ds.put(customerDetail);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("smssend");
+		RequestDispatcher rd = request.getRequestDispatcher("OtpOptions.html");
 		
 		rd.forward(request, response);		
 		

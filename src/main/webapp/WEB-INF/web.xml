@@ -31,6 +31,14 @@
     <servlet-name>CustomerValidation</servlet-name>
     <servlet-class>com.Validation.CustomerValidation</servlet-class>
   </servlet>
+   <servlet>
+    <servlet-name>SendEmail</servlet-name>
+    <servlet-class>com.SendOtp.SendEmail</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>LogInValidation</servlet-name>
+    <servlet-class>com.Validation.LogInValidation</servlet-class>
+  </servlet>
   
   <servlet-mapping>
     <servlet-name>RegistrationServlet</servlet-name>
@@ -47,5 +55,13 @@
   <servlet-mapping>
     <servlet-name>CustomerValidation</servlet-name>
     <url-pattern>/customervalidation</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>SendEmail</servlet-name>
+    <url-pattern>/sendemail</url-pattern>
+  </servlet-mapping>
+     <servlet-mapping>
+    <servlet-name>LogInValidation</servlet-name>
+    <url-pattern>/logInvalidation</url-pattern>
   </servlet-mapping>
 </web-app>

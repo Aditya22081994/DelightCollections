@@ -20,6 +20,7 @@ public class SendEmail extends HttpServlet {
  protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 	 Properties props = new Properties();
+	 
 	 Session session = Session.getDefaultInstance(props, null);
 	 
 	 HttpSession httpsession = request.getSession();
