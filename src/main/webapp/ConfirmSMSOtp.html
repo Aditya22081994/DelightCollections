@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>OTP Verification</title>
@@ -8,10 +8,22 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
+<div class="container-fluid">
 <form action="otpsmsvalidation" method="post">
-Enter One Time Password : <input type="text" name="verifysmsotp"/>
-<input type="submit" value="submit"/>
+
+<div class="form-group">
+<label class="control-label col-sm-4"><h4>Enter One Time Password : </h4></label>
+<div class="col-sm-5">
+<input type="text" class="form-control" name="verifysmsotp" placeholder="Enter One Time Password"/>
+</div>
+</div>
+
+<div class="form-group">
+<div class="col-sm-offset-2 col-lg-10">
+<button type="submit" class="btn btn-success">Submit</button>
+</div>
+</div>
 </form>
+</div>
 </body>
 </html>

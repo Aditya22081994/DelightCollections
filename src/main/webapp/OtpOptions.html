@@ -8,14 +8,25 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h2> Otp should be sent to your :</h2>
+<div class="container-fluid">
+
 
 <form action="smssend">
-<input type="submit"/>
+<div class="form-group">
+<label class="control-label col-sm-3">Otp should be sent to your :</label>
+ <div class="col-sm-offset-2 col-lg-10">
+<button type="submit" class="btn btn-success">&nbsp;&nbsp;Mobile&nbsp;&nbsp;</button>
+</div>
+</div>
 </form>
 <form action="sendemail" method="post">
-<input type="submit"/>
+<div class="form-group">
+<label class="control-label col-sm-3">Otp should be sent to your :</label>
+<div class="col-sm-offset-2 col-lg-10">
+<button type="submit" class="btn btn-success">&nbsp;&nbsp;Email&nbsp;&nbsp;&nbsp;&nbsp;</button>
+</div>
+</div>
 </form>
-
+</div>
 </body>
 </html>

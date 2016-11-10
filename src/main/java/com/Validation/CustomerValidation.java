@@ -27,7 +27,7 @@ public class CustomerValidation extends HttpServlet {
 		
 		Filter filter = new FilterPredicate("mobile",Query.FilterOperator.EQUAL,mobile);
 		q.setFilter(filter);
-		q.addSort(mobile);
+		q.addSort("mobile");
 		
 		PreparedQuery pq = ds.prepare(q);
 		String obtpass=null;
@@ -39,6 +39,8 @@ public class CustomerValidation extends HttpServlet {
 		if(password.equals(obtpass)){
 			HttpSession session = request.getSession();
 			session.setAttribute("username",obtname);
+			response.getWriter().println("Success!!!");
+
 		} else{
 			response.getWriter().println("Username or password are not matching");
 		}
