@@ -1,21 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Options for OTP Verifications</title>
+<title>OTP Verification</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h2> Otp should be sent to your :</h2>
 
-<form action="smssend">
-<input type="submit"/>
+<form action="otpsmsvalidation" method="post">
+Enter One Time Password : <input type="text" name="verifysmsotp"/>
+<input type="submit" value="submit"/>
 </form>
-<form action="sendemail" method="post">
-<input type="submit"/>
-</form>
-
 </body>
 </html>

@@ -19,8 +19,8 @@ function validatePassword(){
 }
 function validateMobile(){
 	var mobileOne = document.getElementById("mobileOne").value;
-	var phoneNum = mobileOne.replace(/[^\d]/g, '');
-	if(phoneNum.length!=10){
+	if(mobileOne.length!=10){
+		alert("Invalid Number");
 		return false;
 	} else{
 		return true;

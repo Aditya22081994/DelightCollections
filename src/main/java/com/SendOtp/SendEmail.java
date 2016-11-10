@@ -1,6 +1,7 @@
 package com.SendOtp;
 
 import java.io.IOException;
+import java.security.SecureRandom;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -24,8 +25,13 @@ public class SendEmail extends HttpServlet {
 	 Session session = Session.getDefaultInstance(props, null);
 	 
 	 HttpSession httpsession = request.getSession();
-	 String otpPass = (String)httpsession.getAttribute("OTP");
-	 String body = "Your One Time Password is "+" "+ otpPass;
+	 
+	 SecureRandom sr = new SecureRandom();		 
+	 int otppass = sr.nextInt(999999);
+	 
+	 httpsession.setAttribute("OtpEmail",otppass);
+	 
+	 String body = "Your One Time Password is "+" "+ otppass;
 	 String subject = "Mobile No. Verification";
 	 String email = (String)httpsession.getAttribute("email");
 	 String name=(String)httpsession.getAttribute("name");
@@ -39,7 +45,8 @@ public class SendEmail extends HttpServlet {
 		} catch (Exception e){
 		response.getWriter().println("Not a Valid Email Address");
 		}
-	 
+	 httpsession.setAttribute("testEmail","Email");
+	 request.getRequestDispatcher("ConfirmEmailOtp.html").forward(request, response);
 	}
 
 }

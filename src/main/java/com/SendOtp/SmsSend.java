@@ -35,16 +35,12 @@ public class SmsSend extends HttpServlet {
 		 final String accountsid = System.getenv("TWILIO_ACCOUNT_SID");
 		 final String authToken = System.getenv("TWILIO_AUTH_TOKEN");
 		 final String twilioNumber = System.getenv("TWILIO_NUMBER");
-		 String mobile = req.getParameter(mobileotp);
-		 final String endMobile = "+91"+mobile;
+		 final String endMobile = "+91"+mobileotp;
 		 
 		 SecureRandom sr = new SecureRandom();		 
 		 int otp = sr.nextInt(999999);
 		 
-		 session.setAttribute("OTP",otp);
-		
-		 
-		 req.setAttribute("OTP",otp);
+		 session.setAttribute("OTPSms",otp);
 		 
 		 TwilioRestClient client = new TwilioRestClient(accountsid, authToken);
 		 
@@ -61,11 +57,13 @@ public class SmsSend extends HttpServlet {
 		try {
 		      Message sms = msg.create(list);
 		      resp.getWriter().println("You are registered");
-		      req.getRequestDispatcher("ConfirmOtp.html").forward(req, resp);
+		      session.setAttribute("testSms","Sms");
+		      req.getRequestDispatcher("ConfirmSMSOtp.html").forward(req, resp);
 		    } catch (TwilioRestException e) {
 		      throw new ServletException("Twilio error", e);
 		    
 		  }
+		 
 	}
 
 }

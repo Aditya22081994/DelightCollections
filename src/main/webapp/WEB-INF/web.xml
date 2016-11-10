@@ -4,6 +4,9 @@
          xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
          version="2.5">
+  <welcome-file-list>
+    <welcome-file>HomePage.html</welcome-file>
+  </welcome-file-list>
    <servlet>
     <servlet-name>HelloAppEngine</servlet-name>
     <servlet-class>com.OnlineShoppingPortal.DelightCollections.HelloAppEngine</servlet-class>
@@ -12,9 +15,6 @@
     <servlet-name>HelloAppEngine</servlet-name>
     <url-pattern>/hello</url-pattern>
   </servlet-mapping>
-  <welcome-file-list>
-    <welcome-file>RegistrationForm.jsp</welcome-file>
-  </welcome-file-list>
   <servlet>   
     <servlet-name>RegistrationServlet</servlet-name>
     <servlet-class>com.Validation.RegistrationServlet</servlet-class>
@@ -24,8 +24,12 @@
     <servlet-class>com.SendOtp.SmsSend</servlet-class>
   </servlet>
     <servlet>
-    <servlet-name>OtpValidation</servlet-name>
-    <servlet-class>com.SendOtp.OtpValidation</servlet-class>
+    <servlet-name>OtpSmsValidation</servlet-name>
+    <servlet-class>com.SendOtp.OtpSmsValidation</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>OtpEmailValidation</servlet-name>
+    <servlet-class>com.SendOtp.OtpEmailValidation</servlet-class>
   </servlet>
       <servlet>
     <servlet-name>CustomerValidation</servlet-name>
@@ -49,8 +53,12 @@
     <url-pattern>/smssend</url-pattern>
   </servlet-mapping>
    <servlet-mapping>
-    <servlet-name>OtpValidation</servlet-name>
-    <url-pattern>/otpvalidation</url-pattern>
+    <servlet-name>OtpSmsValidation</servlet-name>
+    <url-pattern>/otpsmsvalidation</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>OtpEmailValidation</servlet-name>
+    <url-pattern>/otpemailvalidation</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>CustomerValidation</servlet-name>
