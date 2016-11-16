@@ -11,18 +11,27 @@
    <% 
 BlobKey blobKeyOne=null;
 BlobKey blobKeyTwo=null;
-BlobKey blobKeyThree=null;
-String imageOne=null; String imageTwo=null; String imageThree=null; 
+BlobKey blobKeyThree=null; BlobKey blobKeyFour=null; BlobKey blobKeyFive=null; BlobKey blobKeySix=null;
+String imageOne=null; String imageTwo=null; String imageThree=null; String imageFour=null; String imageFive=null; String imageSix=null;
 ImagesService imagesService;
 String keyString=null;
 BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
-blobKeyOne = new BlobKey("AMIfv97serA9GvK1QvACY9nmZcpjk0Q9_vei6jPgLsvr_g8H7Pz3E21rexdpEz-M8OzitwDcIFsrvu89PUS54N5hrLqk7WpyLRMsxdiseGBmDBRtwZLjaYs-Ni6SYkx6bv9glXVnmt79J5IyC2m6cfQ-MkmW7MWnVou6TYo0-ZZLNspTa9bplkiwhefHYXMJs7za-vZ5SD4U5Ear-hyxPS6iie8rvM8IVcy6vDNyUw7YqcMxnA2mxKLPjO586BNG4ExvoNM68zizSakxvimCbvphckmmGL2WcblApnZ_ShAIoAsUU1sF9XDGPxgsSaJENF4_3FgJdeJPQfSDsMPlQ24SjdQ69JE27wnszxhYdx2PijkoKmZt_coQjqdT4TbklkF_UqzukJJZO2XZAYvyVcH4fwbspQN6_Q5fRROJbnKlssa6aqI2l3pAmfaH_HPXOvkm3EQ26FEC");
-blobKeyTwo = new BlobKey("AMIfv96qx0iX295RZ-7lf8gybli-khoMf-Ok42NHqRug0FoSZw0oN-FiCKiRAiIYwqT4p_eDdeFTWTaPvA8C1HHCwA-JDMBQr5Z86ElxHWXkpEDLstdo3ulMamKrcW4bIFFeVumtp-_WjhkPMH0Vi3MQ5j0qy6GsnzjI2VB5WERLU_KR-tqatkBSpCM-V_ZQpFueEX1wcV0o9yKNycTlR5y2GsBOCGKLVpHrRPIqF6ZnuhlRh1ZBcpDFVlcYSez62-0hpDC28-QajRM2Dkq4S6dWpmRT46-pQkns4ONOeYq4_lhv_C0UCzhHF5Jrfm3EAZCnEMHyyuUc8JqHBqD0plwsWdjiTuLYOcOI-7rBcoF8474ZlyuMxJ3LGhw-DARIA-xZ49Onejl8XOWTF7ANvnWF_reOBEfYwaYLiXsAvJhAozAW1-S1sJhK1aSCHFZxOvqo9DQNWlKB");
-blobKeyThree = new BlobKey("AMIfv966Iz2j9Xi-JnHFEFRdRxItIqqGj2ARXqGdzD0BLnBbiLSbszTd0QDxrOlpro4KOfBc23yBTgM1F78efTyyL9ItGGy8wCxVSLikjkkq6eK_1I5AWYc-3hq2n-Zxzdm5JjINgF_j-wIgZ7p7j6zwGAqE5qISpG_HiYfHXarMI0BNs0KzdTQ3RBVxUsg3Uq5blacL_l3HutH7_jojAip56z9q0Ev3f91AF68LFmlXtI-TLrmFohv8rMDbJ7L9lYqaG_kPu34hewCz_mhyDXcQVKCXz7zBNzlLfxpI24NIi_ExchSmygpzjJ9e03Bh1ge85hHLTyOKLwGIKCdJEeytxFJ_l7ngq1VE3yRqW4na3L0SIXmqEfmMQMmF7UIvAM0rG9Wxd8LrF8N5E0NY8KLOD3t9ul8xX5yRGarK4GJUPWSGXHIcrORQzaTCuIZDQXbx-snwZKwi");
+blobKeyOne = new BlobKey("AMIfv95pbROBwx20LeOPvEJIbI1iA-S6cscNz2zgCJMshO-lOJ8JNdzWK1p3bgTIpErCfy-U7iexKs6cYScv59AQXRTqBmZjF1sYaJJ-UUojPVhqqKK6qxqquJ7P7jexFD8aUREoglJPYsaXZjY_u4XKaPa9ALpB32exu3pfFeOsSbplyAyPR9Pt9WedRB0ndExeHxPCwkxidPg8kDVRC-2AlUvNHKTPFYKIrQV7sU_KXtlbCpl1W7jJwRnH0KkCvRrjU-Y-Hm7Ox32mNGzSpjJXmGL1Nc9_pbbTxejFOg9cLDVu8-3DfG5F3F59ezkAg1M9nNMfQID5yuKmMHFM0c4YUfRwBMMhn93FN5b9Z_lKjyvKRdySNghsjiBfQ9MQIMd7vGKVXQP60Dy0uRGkoqmNXkwpvl5gIg");
+blobKeyTwo = new BlobKey("AMIfv95aYik3qqfxkrYkNMDY_jkDBD2u1iEMGeIWYW6Oh0D2rR5BHKobY0dGKb1ibfy3Q5EWvqKWnW4ydmhD5AH75Zpz1obNLv-0g0-TSPH1Jkqt4R_S7t_fjtAcHwaaDHBaKQi-TPhiwgIibXFDmdYrX8BrZ5s8qc_R5QEpJePhJkxR55o75HvTKrsigWRKvAt90dud8Ly4VZRjpiAUhVMO5PZviYYpuyr49ZcUQM00XM2UufoFapKCQ5fZsF-bYTvgJgk1ZNTsUIOx0MxP5-owqXNUuHf_6BoTWnUjdVboIL0C-jI9Vbup2pLgThEOo-I0A7DaUCBazsyVpaG-b_GyB1mLS4I9MHx2lnfSfw74lIFCIqJ4J2VQECQEACNaS98OlK5bg9gNGp6GvQun8VGaWam5QO9pBg");
+blobKeyThree = new BlobKey("AMIfv941P3wP6yteTG1IxW_die-xkgBu41fuQokjo3wWP1j8f838g4UgxKBcv2rgTxPxwsOoH1jlFN1L0olgzDSs4f32_6_IB1rNNJsyktEsdY0Pa1PHA4BN_rk0aeDcir-UUrf2SilLXlA47--FqaGRQKuaLheXi26LHE_qJ9E9ZPXPPiSx0DiAxjH9F4LgjpfT2G_ppcPpj7d3hZyeMs8QR7wTfRiSh0PSMhB9S6xutAqY66BZFEfbQwT9DFCeq5Peo5alT3JMtIU2agI6Moi-Mgrgo9QM9igReAI3QEahYYNYRJMX0Rogy3BEbL4Vf6erYLbEdhrHGSKuaT5z5rNz0iJfdT-h3guExZ-SOyYftcoA3we09heI7zNMUcBiVL7eP1I77IkN6DKt-SAOYjxrwvCLklZ-ig");
+blobKeyFour = new BlobKey("AMIfv947U0nXNCtnv0Vn3J6GpdYRdbsmJRg6p3h-IPeSXz4njjDnAfn4uUiU_Vc-F53l6DqET5bO6jSN_Dj99kRaJPsvt6-fIH4f-cmkiNVDF0BY_zwIuq8VEMnLR9Rd6mqb4brXjQebNOXU7rRdZAmptY4jLNGNNyfNEIRSgWSL-49M24IWLimY5y27WMl-9QtXM6xeIQ3QekOC02RZjlLN5vVGUR5uFWIi-U7z8XU4q_Pr0sH14KZxoNP0sI26r1Jru-V4eiDsOUmZZtT6hE-227k2VmnOiSbi4G-fiJ8TpZVvs2Mkaha9h0Sm5_JHpBEpTuqte37MIpal1rtLE8o2k6X6IFVgne5GPXOlV6_hEf7ZW46bB1-exQPx_lo1fEIyI6cZltSj-S2ADNWB4QE4bCnWueHJJQ");
+blobKeyFive = new BlobKey("AMIfv94fvU1Nz4pwcpGnyeKBZCoHby1bj--9NKuqmN_XuloeYQWzCXvgkM6kT2uX2uXuxj00Ka96NWdO240kCSkJbQ00vBwrcLHIdDg4WjTVofhWgfeHdxQqt-wpU_Za6h0g6jqYmXjUHH3YAboz8n5xFjJ77PekU4x4SbUqSDH-lFtcKjVkqt0rmTzqu2ftqGxiFfjrDHowdjlD2XzdAW9r2PCcY5Awt08SuJKUr8OYU22ydq4XP9Ty9LKnSGDsbsN_1V-LjIAk0qkHbOZGBCxdTtBrokZlW8IADyHw4L4TYb3v47rKEdtJlUFexNKQ8RY8FcMapuNNHQChty4HCHrWmzVtYtqpjLEQJ-2iVV8nrNV6d3l7-knN7H9PTM0l-5AiZ6GoLXGjxkYqVqrJquITBEXpC5Qu_A");
+blobKeySix = new BlobKey("AMIfv97ADt0wrBfE5BLI5Kx9NDebVIt9LQ2emYy72iwqXSfDnU3Ib54DCEeUrdVcZqySEF3GqN3V2bGNSG8zQulNFWealyb5Vvffmobnehx6ahKB-j7Sdr-DM5uVjPitMqc0kWRd-OfpvUcZXYbLUdlP6Br1HUkb8frQ1hCDC7a5tljV-d-2IkGOX4yNXZagkdSKTi1H6mYW7JacNSI7EgJr4CcRni7pnM99fNQnRhZygo2mcrd5qNm6z3aMIjJ1cemp3wLmuCghWxaFEFPhyBnfsD6mlOwJ35eZdhLjw2U0pOv-7hpjBVzvAcysFE_Hfru3yQju1bWzFxyqd2iZ7EtdWHvLfZ2q3vm50kCpwrF5NGdq7SbtT7eT38vCTWzALUaeJrlzJUFgdItxqTF5XPKcvKdVZo2mKw");
+
 imagesService = ImagesServiceFactory.getImagesService();
 imageOne = imagesService.getServingUrl(blobKeyOne);
 imageTwo = imagesService.getServingUrl(blobKeyTwo);
 imageThree = imagesService.getServingUrl(blobKeyThree);
+imageFour = imagesService.getServingUrl(blobKeyFour);
+imageFive = imagesService.getServingUrl(blobKeyFive);
+imageSix = imagesService.getServingUrl(blobKeySix);
+
+
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,21 +87,8 @@ $(document).ready(function(){
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#">Contact</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li class="dropdown-header">Nav header</li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
-              </li>
-            </ul>
+              <li class="active"><a href="HomePage.jsp">Home</a></li>
+              </ul>
             <ul class="nav navbar-nav navbar-right">
         <!--       <li class="active"><a href="./">Default <span class="sr-only">(current)</span></a></li>   -->
               <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -127,10 +123,10 @@ $(document).ready(function(){
   <div class="row content">
     <div class="col-sm-3 sidenav hidden-xs">
       <h2>Categories</h2>
-      <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a href="#section1">Formal Wear</a></li>
-        <li><a href="#section2">Ethnic Wear</a></li>
-        <li><a href="#section3">Casual Wear</a></li>
+       <ul class="nav nav-pills nav-stacked">
+        <li><a href="ViewFormalShirtsPage.jsp">Formal Wear</a></li>
+        <li><a href="ViewCasualShirtsPage.jsp">Casual Wear</a></li>
+        <li><a href="ViewJeansPage.jsp">Jeans</a></li>
         <li><a href="#section3">Sports Wear</a></li>
       </ul><br>
     </div>
@@ -152,21 +148,15 @@ $(document).ready(function(){
            <img class="img-thumbnail" src="<%=imageThree %>" style="width: 150px; height: 236px;">
         </div>
         <div class="col-sm-3">
-           <img class="img-thumbnail" src="<%=imageOne %>" style="width: 150px; height: 236px;">
+           <img class="img-thumbnail" src="<%=imageFour %>" style="width: 150px; height: 236px;">
         </div>
       </div>
-      <div class="row">
+     <div class="row">
         <div class="col-sm-3">
-           <img class="img-thumbnail" src="<%=imageOne %>" style="width: 150px; height: 236px;">
+           <img class="img-thumbnail" src="<%=imageFive %>" style="width: 150px; height: 236px;">
         </div>
          <div class="col-sm-3">
-           <img class="img-thumbnail" src="<%=imageTwo %>" style="width: 150px; height: 236px;">
-        </div>
-        <div class="col-sm-3">
-           <img class="img-thumbnail" src="<%=imageThree %>" style="width: 150px; height: 236px;">
-        </div>
-        <div class="col-sm-3">
-           <img class="img-thumbnail" src="<%=imageOne %>" style="width: 150px; height: 236px;">
+           <img class="img-thumbnail" src="<%=imageSix %>" style="width: 150px; height: 236px;">
         </div>
       </div>
     </div>

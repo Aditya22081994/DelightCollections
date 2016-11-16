@@ -14,30 +14,30 @@ import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.*;
 
 
-public class LogInValidation extends HttpServlet {
+public class AdminValidation extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String username = request.getParameter("username");
+		String mobile = request.getParameter("mobile");
 		String password = request.getParameter("password");
 		
 		DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
-		Query q = new Query("CustomerRegistrationTable");
+		Query q = new Query("AdministratorRegistrationTable");
 		
-		Filter filter = new FilterPredicate("mobile",Query.FilterOperator.EQUAL,username);
+		Filter filter = new FilterPredicate("mobile",Query.FilterOperator.EQUAL,mobile);
 		//Filter filter2 = new FilterPredicate("email",Query.FilterOperator.EQUAL,username);
 		q.setFilter(filter);
 		q.addSort("mobile");
 		
-		String cPassword=null;
+		String aPassword=null;
 		
 		PreparedQuery pq = ds.prepare(q);
 		for(Entity result : pq.asIterable()){
-			cPassword=result.getProperty("password").toString();
+			aPassword=result.getProperty("password").toString();
 		}
 		
-		if(password.equals(cPassword)){
+		if(password.equals(aPassword)){
 			response.getWriter().print("You are Successfully registered!!!");
 		} else{
 			response.getWriter().print("You are not registered!!!");

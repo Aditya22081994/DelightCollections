@@ -19,6 +19,10 @@
     <servlet-name>RegistrationServlet</servlet-name>
     <servlet-class>com.Validation.RegistrationServlet</servlet-class>
   </servlet>
+    <servlet>   
+    <servlet-name>AdminRegistrationServlet</servlet-name>
+    <servlet-class>com.Validation.AdminRegistrationServlet</servlet-class>
+  </servlet>
    <servlet>
     <servlet-name>SendSMS</servlet-name>
     <servlet-class>com.SendOtp.SmsSend</servlet-class>
@@ -40,8 +44,8 @@
     <servlet-class>com.SendOtp.SendEmail</servlet-class>
   </servlet>
   <servlet>
-    <servlet-name>LogInValidation</servlet-name>
-    <servlet-class>com.Validation.LogInValidation</servlet-class>
+    <servlet-name>AdminValidation</servlet-name>
+    <servlet-class>com.Validation.AdminValidation</servlet-class>
   </servlet>
     <servlet>
     <servlet-name>UploadImageServlet</servlet-name>
@@ -53,6 +57,10 @@
   <servlet-mapping>
     <servlet-name>RegistrationServlet</servlet-name>
     <url-pattern>/registrationservlet</url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>AdminRegistrationServlet</servlet-name>
+    <url-pattern>/adminregistrationservlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>SendSMS</servlet-name>
@@ -75,8 +83,8 @@
     <url-pattern>/sendemail</url-pattern>
   </servlet-mapping>
      <servlet-mapping>
-    <servlet-name>LogInValidation</servlet-name>
-    <url-pattern>/logInvalidation</url-pattern>
+    <servlet-name>AdminValidation</servlet-name>
+    <url-pattern>/adminvalidation</url-pattern>
   </servlet-mapping>
     <servlet-mapping>
     <servlet-name>UploadImageServlet</servlet-name>

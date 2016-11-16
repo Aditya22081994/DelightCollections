@@ -74,18 +74,17 @@ imageThree = imagesService.getServingUrl(blobKeyThree);
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Delight Collections</a>
+            <a class="navbar-brand" href="HomePage.jsp">Delight Collections</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li class="active"><a href="#">Home</a></li>
-              <li><a href="UploadImagePage.jsp">Upload Image</a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="ViewProductOne.jsp">ViewProducts</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
+                <li><a href="ViewFormalShirtsPage.jsp">View Formals</a></li>
+                  <li><a href="ViewCasualShirtsPage.jsp">View Casuals</a></li>
+                  <li><a href="ViewJeansPage.jsp">View Jeans</a></li>
                   <li role="separator" class="divider"></li>
                   <li class="dropdown-header">Nav header</li>
                   <li><a href="#">Separated link</a></li>
@@ -94,7 +93,7 @@ imageThree = imagesService.getServingUrl(blobKeyThree);
               </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li class="active"><a href="./">Default <span class="sr-only">(current)</span></a></li>
+      <li><a href="AdministratorLogInPage.html"><span class="glyphicon glyphicon-log-in"></span> Admin Login</a></li> 
               <li><a href="RegistrationForm.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a href="CustomerLogInPage.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> 
             </ul>
