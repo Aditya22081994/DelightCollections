@@ -5,6 +5,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
@@ -31,13 +32,18 @@ public class AdminValidation extends HttpServlet {
 		q.addSort("mobile");
 		
 		String aPassword=null;
+		String aUsername=null;
 		
 		PreparedQuery pq = ds.prepare(q);
 		for(Entity result : pq.asIterable()){
 			aPassword=result.getProperty("password").toString();
+			aUsername=result.getProperty("name").toString();
 		}
 		
 		if(password.equals(aPassword)){
+			HttpSession session = request.getSession();
+			session.setAttribute("admin",aUsername);
+			session.setMaxInactiveInterval(30*60);
 			response.sendRedirect("AdminHomePage.jsp");
 		} else{
 			response.getWriter().print("You are not registered!!!");

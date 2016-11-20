@@ -35,9 +35,19 @@ height: 100%;
     left: 0;
     min-height: 400px;
 }
+.alignpos{
+line-height: 60px;
+}
 </style>
 </head>
 <body>
+<% String admin=null;
+if(session.getAttribute("admin")==null){
+	response.sendRedirect("AdministratorLogInPage.html"); 
+} else{
+admin=session.getAttribute("admin").toString();
+}
+%>
 <% 
 BlobKey blobKeyOne=null;
 BlobKey blobKeyTwo=null;
@@ -82,6 +92,10 @@ imageThree = imagesService.getServingUrl(blobKeyThree);
                   <li><a href="#">One more separated link</a></li>
                 </ul>
               </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><b>Welcome <%= admin %></b></a></li>
+      <li><a href="adminlogout"><span class="glyphicon glyphicon-log-out"></span> LogOut</a></li> 
             </ul>
           </div>
         </div>

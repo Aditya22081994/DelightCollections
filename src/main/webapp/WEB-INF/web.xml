@@ -48,6 +48,10 @@
     <servlet-class>com.Validation.AdminValidation</servlet-class>
   </servlet>
     <servlet>
+    <servlet-name>AdminLogout</servlet-name>
+    <servlet-class>com.Validation.AdminLogout</servlet-class>
+  </servlet>
+    <servlet>
     <servlet-name>UploadImageServlet</servlet-name>
     <servlet-class>com.Images.UploadImageServlet</servlet-class>
   </servlet>
@@ -85,6 +89,10 @@
      <servlet-mapping>
     <servlet-name>AdminValidation</servlet-name>
     <url-pattern>/adminvalidation</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AdminLogout</servlet-name>
+    <url-pattern>/adminlogout</url-pattern>
   </servlet-mapping>
     <servlet-mapping>
     <servlet-name>UploadImageServlet</servlet-name>
