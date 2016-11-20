@@ -33,5 +33,6 @@ imageUrl = imagesService.getServingUrl(blobKey);
 <img src="<%=imageUrl %>" alt="myImage"/>
 </div>
 </div>
+<jsp:include page="FooterFile.html" /> 
 </body>
 </html>

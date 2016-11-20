@@ -45,7 +45,7 @@ function validate(){
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Delight Collections</a>
+            <a class="navbar-brand" href="HomePage.jsp">Delight Collections</a>
           </div>
         </div>
       </nav>
@@ -54,35 +54,35 @@ function validate(){
 
 <div class="form-group">
       <label class="control-label col-sm-2" for="email">NAME :</label>
-      <div class="col-sm-6">
+      <div class="col-sm-5">
         <input type="text" class="form-control" name="username" placeholder="Enter Name" required/>
       </div>
     </div>
 
 <div class="form-group">
       <label class="control-label col-sm-2" for="email">EMAIL :</label>
-      <div class="col-sm-6">
+      <div class="col-sm-5">
         <input type="email" class="form-control" name="email" placeholder="Enter email" required/>
       </div>
     </div>
     
     <div class="form-group">
       <label class="control-label col-sm-2" for="email">PASSWORD :</label>
-      <div class="col-sm-6">
-        <input class="form-control" type="password" name="passone" id="passwordOne" required />
+      <div class="col-sm-5">
+        <input class="form-control" type="password" name="passone" id="passwordOne" placeholder="Type your Password" required />
       </div>
     </div>
     
   <div class="form-group">
       <label class="control-label col-sm-2" for="email">CONFIRM PASSWORD :</label>
-     <div class="col-sm-6">
-        <input class="form-control" type="password" name="passtwo" id="passwordTwo" required />
+     <div class="col-sm-5">
+        <input class="form-control" type="password" name="passtwo" id="passwordTwo" placeholder="Re-Type your Password" required />
       </div>
     </div>
     
      <div class="form-group">
       <label class="control-label col-sm-2" for="email">MOBILE NO. :</label>
-      <div class="col-sm-6">
+      <div class="col-sm-5">
         <input class="form-control" type="text" name="mobile" placeholder="An OTP will be sent to this number" id="mobileOne" required />
       </div>
     </div>

@@ -38,7 +38,7 @@ public class AdminValidation extends HttpServlet {
 		}
 		
 		if(password.equals(aPassword)){
-			response.getWriter().print("You are Successfully registered!!!");
+			response.sendRedirect("AdminHomePage.jsp");
 		} else{
 			response.getWriter().print("You are not registered!!!");
 		}

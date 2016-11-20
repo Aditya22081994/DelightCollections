@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-    <%@ page import="java.io.IOException" %>
+   <%@ page import="java.io.IOException" %>
    <%@ page import="javax.servlet.http.HttpServlet" %>
    <%@ page import="javax.servlet.http.HttpServletRequest" %>
    <%@ page import="javax.servlet.http.HttpServletResponse" %>
@@ -8,20 +8,23 @@
    <%@ page import="com.google.appengine.api.blobstore.BlobstoreServiceFactory" %>
    <%@ page import="com.google.appengine.api.images.ImagesService" %>
    <%@ page import="com.google.appengine.api.images.ImagesServiceFactory" %>
+   <%@ page import="com.Images.BlobKeyValues" %>
+   
    <% 
-BlobKey blobKeyOne=null;
-BlobKey blobKeyTwo=null;
-BlobKey blobKeyThree=null; BlobKey blobKeyFour=null; BlobKey blobKeyFive=null; BlobKey blobKeySix=null;
-String imageOne=null; String imageTwo=null; String imageThree=null; String imageFour=null; String imageFive=null; String imageSix=null;
-ImagesService imagesService;
-String keyString=null;
-BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
-blobKeyOne = new BlobKey("AMIfv95pbROBwx20LeOPvEJIbI1iA-S6cscNz2zgCJMshO-lOJ8JNdzWK1p3bgTIpErCfy-U7iexKs6cYScv59AQXRTqBmZjF1sYaJJ-UUojPVhqqKK6qxqquJ7P7jexFD8aUREoglJPYsaXZjY_u4XKaPa9ALpB32exu3pfFeOsSbplyAyPR9Pt9WedRB0ndExeHxPCwkxidPg8kDVRC-2AlUvNHKTPFYKIrQV7sU_KXtlbCpl1W7jJwRnH0KkCvRrjU-Y-Hm7Ox32mNGzSpjJXmGL1Nc9_pbbTxejFOg9cLDVu8-3DfG5F3F59ezkAg1M9nNMfQID5yuKmMHFM0c4YUfRwBMMhn93FN5b9Z_lKjyvKRdySNghsjiBfQ9MQIMd7vGKVXQP60Dy0uRGkoqmNXkwpvl5gIg");
-blobKeyTwo = new BlobKey("AMIfv95aYik3qqfxkrYkNMDY_jkDBD2u1iEMGeIWYW6Oh0D2rR5BHKobY0dGKb1ibfy3Q5EWvqKWnW4ydmhD5AH75Zpz1obNLv-0g0-TSPH1Jkqt4R_S7t_fjtAcHwaaDHBaKQi-TPhiwgIibXFDmdYrX8BrZ5s8qc_R5QEpJePhJkxR55o75HvTKrsigWRKvAt90dud8Ly4VZRjpiAUhVMO5PZviYYpuyr49ZcUQM00XM2UufoFapKCQ5fZsF-bYTvgJgk1ZNTsUIOx0MxP5-owqXNUuHf_6BoTWnUjdVboIL0C-jI9Vbup2pLgThEOo-I0A7DaUCBazsyVpaG-b_GyB1mLS4I9MHx2lnfSfw74lIFCIqJ4J2VQECQEACNaS98OlK5bg9gNGp6GvQun8VGaWam5QO9pBg");
-blobKeyThree = new BlobKey("AMIfv941P3wP6yteTG1IxW_die-xkgBu41fuQokjo3wWP1j8f838g4UgxKBcv2rgTxPxwsOoH1jlFN1L0olgzDSs4f32_6_IB1rNNJsyktEsdY0Pa1PHA4BN_rk0aeDcir-UUrf2SilLXlA47--FqaGRQKuaLheXi26LHE_qJ9E9ZPXPPiSx0DiAxjH9F4LgjpfT2G_ppcPpj7d3hZyeMs8QR7wTfRiSh0PSMhB9S6xutAqY66BZFEfbQwT9DFCeq5Peo5alT3JMtIU2agI6Moi-Mgrgo9QM9igReAI3QEahYYNYRJMX0Rogy3BEbL4Vf6erYLbEdhrHGSKuaT5z5rNz0iJfdT-h3guExZ-SOyYftcoA3we09heI7zNMUcBiVL7eP1I77IkN6DKt-SAOYjxrwvCLklZ-ig");
-blobKeyFour = new BlobKey("AMIfv947U0nXNCtnv0Vn3J6GpdYRdbsmJRg6p3h-IPeSXz4njjDnAfn4uUiU_Vc-F53l6DqET5bO6jSN_Dj99kRaJPsvt6-fIH4f-cmkiNVDF0BY_zwIuq8VEMnLR9Rd6mqb4brXjQebNOXU7rRdZAmptY4jLNGNNyfNEIRSgWSL-49M24IWLimY5y27WMl-9QtXM6xeIQ3QekOC02RZjlLN5vVGUR5uFWIi-U7z8XU4q_Pr0sH14KZxoNP0sI26r1Jru-V4eiDsOUmZZtT6hE-227k2VmnOiSbi4G-fiJ8TpZVvs2Mkaha9h0Sm5_JHpBEpTuqte37MIpal1rtLE8o2k6X6IFVgne5GPXOlV6_hEf7ZW46bB1-exQPx_lo1fEIyI6cZltSj-S2ADNWB4QE4bCnWueHJJQ");
-blobKeyFive = new BlobKey("AMIfv94fvU1Nz4pwcpGnyeKBZCoHby1bj--9NKuqmN_XuloeYQWzCXvgkM6kT2uX2uXuxj00Ka96NWdO240kCSkJbQ00vBwrcLHIdDg4WjTVofhWgfeHdxQqt-wpU_Za6h0g6jqYmXjUHH3YAboz8n5xFjJ77PekU4x4SbUqSDH-lFtcKjVkqt0rmTzqu2ftqGxiFfjrDHowdjlD2XzdAW9r2PCcY5Awt08SuJKUr8OYU22ydq4XP9Ty9LKnSGDsbsN_1V-LjIAk0qkHbOZGBCxdTtBrokZlW8IADyHw4L4TYb3v47rKEdtJlUFexNKQ8RY8FcMapuNNHQChty4HCHrWmzVtYtqpjLEQJ-2iVV8nrNV6d3l7-knN7H9PTM0l-5AiZ6GoLXGjxkYqVqrJquITBEXpC5Qu_A");
-blobKeySix = new BlobKey("AMIfv97ADt0wrBfE5BLI5Kx9NDebVIt9LQ2emYy72iwqXSfDnU3Ib54DCEeUrdVcZqySEF3GqN3V2bGNSG8zQulNFWealyb5Vvffmobnehx6ahKB-j7Sdr-DM5uVjPitMqc0kWRd-OfpvUcZXYbLUdlP6Br1HUkb8frQ1hCDC7a5tljV-d-2IkGOX4yNXZagkdSKTi1H6mYW7JacNSI7EgJr4CcRni7pnM99fNQnRhZygo2mcrd5qNm6z3aMIjJ1cemp3wLmuCghWxaFEFPhyBnfsD6mlOwJ35eZdhLjw2U0pOv-7hpjBVzvAcysFE_Hfru3yQju1bWzFxyqd2iZ7EtdWHvLfZ2q3vm50kCpwrF5NGdq7SbtT7eT38vCTWzALUaeJrlzJUFgdItxqTF5XPKcvKdVZo2mKw");
+      BlobKey blobKeyOne=null;  BlobKey blobKeyTwo=null;  BlobKey blobKeyThree=null;  
+   BlobKey blobKeyFour=null; BlobKey blobKeyFive=null;  BlobKey blobKeySix=null;
+
+   String imageOne=null; String imageTwo=null; String imageThree=null; 
+   String imageFour=null; String imageFive=null; String imageSix=null;
+   ImagesService imagesService;
+   
+   BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
+   blobKeyOne = new BlobKey(BlobKeyValues.casualOne);
+   blobKeyTwo = new BlobKey(BlobKeyValues.casualTwo);
+   blobKeyThree = new BlobKey(BlobKeyValues.casualThree);
+   blobKeyFour = new BlobKey(BlobKeyValues.casualFour);
+   blobKeyFive = new BlobKey(BlobKeyValues.casualFive);
+   blobKeySix = new BlobKey(BlobKeyValues.casualSix);
 
 imagesService = ImagesServiceFactory.getImagesService();
 imageOne = imagesService.getServingUrl(blobKeyOne);
@@ -64,11 +67,21 @@ imageSix = imagesService.getServingUrl(blobKeySix);
 
   </style>
 <script type="text/javascript">
-$(document).ready(function(){
-    $(<%= blobKeyOne %>).click(function(){
-        alert("The paragraph was clicked.");
-    });
-});
+function functionOne(clicked_id){
+	if(clicked_id=="1cs"){
+		window.location = "ShowCaseCasuals.jsp?blobOneKey="+"<%=BlobKeyValues.casualOne %>";
+	} else if(clicked_id=="2cs"){
+		window.location = "ShowCaseCasuals.jsp?blobOneKey="+"<%=BlobKeyValues.casualTwo %>";
+	} else if(clicked_id=="3cs"){
+		window.location = "ShowCaseCasuals.jsp?blobOneKey="+"<%=BlobKeyValues.casualThree %>";
+	} else if(clicked_id=="4cs"){
+		window.location = "ShowCaseCasuals.jsp?blobOneKey="+"<%=BlobKeyValues.casualFour %>";
+	} else if(clicked_id=="5cs"){
+		window.location = "ShowCaseCasuals.jsp?blobOneKey="+"<%=BlobKeyValues.casualFive %>";
+	} else{
+		window.location = "ShowCaseCasuals.jsp?blobOneKey="+"<%=BlobKeyValues.casualSix%>";
+	}
+}
 </script>
 </head>
 <body>
@@ -83,7 +96,7 @@ $(document).ready(function(){
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Delight Collections</a>
+            <a class="navbar-brand" href="HomePage.jsp">Delight Collections</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -139,30 +152,30 @@ $(document).ready(function(){
       </div>
 <div class="row">
         <div class="col-sm-3">
-           <img class="img-thumbnail" src="<%=imageOne %>" id="<%= blobKeyOne %>" style="width: 150px; height: 236px;">
+           <img class="img-thumbnail" id="1cs" onclick="functionOne(this.id)" src="<%=imageOne %>"  style="width: 150px; height: 236px;">
         </div>
          <div class="col-sm-3">
-           <img class="img-thumbnail" src="<%=imageTwo %>" style="width: 150px; height: 236px;">
+           <img class="img-thumbnail" id="2cs" onclick="functionOne(this.id)" src="<%=imageTwo %>"  style="width: 150px; height: 236px;">
         </div>
         <div class="col-sm-3">
-           <img class="img-thumbnail" src="<%=imageThree %>" style="width: 150px; height: 236px;">
+           <img class="img-thumbnail" id="3cs" onclick="functionOne(this.id)" src="<%=imageThree %>" style="width: 150px; height: 236px;">
         </div>
         <div class="col-sm-3">
-           <img class="img-thumbnail" src="<%=imageFour %>" style="width: 150px; height: 236px;">
+           <img class="img-thumbnail" id="4cs" onclick="functionOne(this.id)" src="<%=imageFour %>" style="width: 150px; height: 236px;">
         </div>
       </div>
      <div class="row">
         <div class="col-sm-3">
-           <img class="img-thumbnail" src="<%=imageFive %>" style="width: 150px; height: 236px;">
+           <img class="img-thumbnail" id="5cs" onclick="functionOne(this.id)" src="<%=imageFive %>" style="width: 150px; height: 236px;">
         </div>
          <div class="col-sm-3">
-           <img class="img-thumbnail" src="<%=imageSix %>" style="width: 150px; height: 236px;">
+           <img class="img-thumbnail" id="6cs" onclick="functionOne(this.id)" src="<%=imageSix %>" style="width: 150px; height: 236px;">
         </div>
       </div>
     </div>
   </div>
 </div>
-
+<jsp:include page="FooterFile.html" /> 
 </body>
 </html>
 
