@@ -64,5 +64,7 @@ imageOne = imagesService.getServingUrl(blobKeyOne);
 
 <img class="img-thumbnail" src="<%=imageOne %>" style="width: 300px; height: 536px;">
 
+
+
 </body>
 </html>

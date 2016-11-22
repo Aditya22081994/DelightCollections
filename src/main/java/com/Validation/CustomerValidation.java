@@ -38,9 +38,8 @@ public class CustomerValidation extends HttpServlet {
 		}
 		if(password.equals(obtpass)){
 			HttpSession session = request.getSession();
-			session.setAttribute("username",obtname);
-			response.getWriter().println("Success!!!");
-
+			session.setAttribute("Cusername",obtname);
+			response.sendRedirect("CustomerHomePage.jsp");
 		} else{
 			response.getWriter().println("Username or password are not matching");
 		}

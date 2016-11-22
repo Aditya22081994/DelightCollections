@@ -35,18 +35,26 @@ height: 100%;
     left: 0;
     min-height: 400px;
 }
+.alignpos{
+line-height: 60px;
+}
 </style>
 </head>
 <body>
+<% String customer=null;
+if(session.getAttribute("Cusername")==null){
+	response.sendRedirect("CustomerLogInPage.html"); 
+} else{
+	customer=session.getAttribute("Cusername").toString();
+}
+%>
 <% 
-BlobKey blobKeyOne=null;
-BlobKey blobKeyTwo=null;
-BlobKey blobKeyThree=null;
-String imageOne=null; String imageTwo=null; String imageThree=null; 
+BlobKey blobKeyOne=null;   BlobKey blobKeyTwo=null;   BlobKey blobKeyThree=null;
+String imageOne=null;   String imageTwo=null;   String imageThree=null; 
 ImagesService imagesService;
 String keyString=null;
 BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
-blobKeyOne = new BlobKey("AMIfv94VJeYKba_mxIsFErV9vX-4U2HQGPXCbDv30a_1srwJ4bUdymnnNdmto1tAB8NMB0Q61h8BCyUU4kTc5uoMpJu5nLK0bqGqIq7w4VwiMOJR7AUZMkeFpg_Xx0VUvgmuJ88YfNl2ULSG4iR6VjhYLH0XzItZhCWauIKb2ZZKjmq2lTknzFMOPSg1Xs3GbTDc2jn0Exy8VLBiUpQWGc1T9Hg8HlCooltzg-Yi705uv49FoEtR5vCj2BfwF-B-wtwn062D_sPV_EVBHC9SgG51TwVtQuA6cI3F08l7gTJo0fVG3pcJ6qXQhYiVSPaQUGpUz5q44n3fLANL_muxt_0oeTptxitrWkN2rSZZPQzg1xh8wkh5H7ptpw-_EX8Bc7DeE4C2z_j48IpveXr1US4OSzhV37zYc0K48phv4rxaH21fE0KK6-93lrbHxy2Ly8BH3lpchKT7");
+blobKeyOne = new BlobKey("AMIfv967v4Q07uAhVUARmK-E_C5BccmwiLrWWDXYNZp7grMjgUIJ8cHFrgn9TKstGLY6mEkPE1BH5NlGfIByQamPyLTODPz5pt6Iuu8qxeX0G5BcozMeWM5cb-s4MuQ6HGZDFycrDQyAOmb0GO_d97Rbg8TJuAhlCmlXxUnKxUkTvmE2YFSfgr8Xpuut2CuN3WBCULrM5eYrDQTcngKiLOaUJEwjIGA4UOaU5P6V_Poiu07n5YlSJaCcdeZrCP4cIryeaZJ4C1NMWTV_TE307SjANGECe7JnySBX9YBT22S7qijRZr1Hf2NBtopppVx4XoipVj3cnV-4BqIYAfOJXiuv6UdClVPb_gc4aJGOwboWRI3V-4dEy7G3nXbC406s5XRPd5ezdDeaEV9EXITu5sxzQJAkzgvdOUgDcctDgHIGgc-M7GuNe7cx5WxbJ8fzKayYyNMBdTjb");
 blobKeyTwo = new BlobKey("AMIfv97G7dEXQ704Q5Jfzvx303mGzIZNl_bZP4qsI-KUkKuOD4lgFRMbOrkPkTEvZD1mnWTAInoo4DWKtWJSkWXAIq6TGfCv0P8EXuhbUqcwhcInBjI7RAc96hVs3wZbg8XJDZcIACsFtzGJ1p2USKgJT9JQJM_849X0FFcerGWGhrJKB0aaZth2w3dBzCUgHB6YSIbz2Qkq3yMCHRg1YCxhIKpzDg1PRYyZtjxtRWjzSoAuTOj83M_dBM5jLmUG_i2iuxEuVTzHE_3hekv-9h7hPn66hh7RDyA4Cei7I80qf0M0nSuayFFfOHoUTQMpERtJXcnWAmeD056BU57lh-BMhSoHfKPvgioa-cTyQ3z5pNLrQApnkOsuBLU2diV2fIyD1sIJcuf3M1wzezrV0ZrkdOmKChQjTvRbPAd6XA7H9LJ7pgcBqVQZZ83AD-Orh4l_U_ZKpz-d");
 blobKeyThree = new BlobKey("AMIfv97aWxBOQ0RlLlEtL4owm2kTUXLNZdENu3uaqJB5dnlsEf5H0UFF7xhlbbfB_SeMcYs9n8avq5p9BnzVEBBy_atcFNaspnYUgbFBpOETadruOvmgPc3L_9lM-qiIQCEp3E-jU6NPV_v30hzGKPjgZ4BtEpwL8U-4aU5C-rNL-80tzERoNhk9hJyJ6FmLQDHZIUDBdSVu7n6pyTp0TFhdkPxNh-1nIiPmlZHIC0Y3QIe6zfReTK4uy2mglhvVh6ZkjTBHKfg_moX6zBfKTerdjPoX9N3cSK_rHrZDIpLVurW5BXPU-EU27Qgtx9wKHE3zSEVB_EDd-HWwVHqN7LVyYVB9aQ6hjAc3KPD3QCwMYiyZkoNL8T-9albPuxIwbPQkrp9-f9fPFlRsPnPzG2a_pUuIK7riS-eZhwVxqa21w4Etj4VYSx3C9IrnF-iBwXEu2wiHf8rx");
 imagesService = ImagesServiceFactory.getImagesService();
@@ -54,7 +62,7 @@ imageOne = imagesService.getServingUrl(blobKeyOne);
 imageTwo = imagesService.getServingUrl(blobKeyTwo);
 imageThree = imagesService.getServingUrl(blobKeyThree);
 %>
-       
+      
 <nav class="navbar navbar-default">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -64,15 +72,11 @@ imageThree = imagesService.getServingUrl(blobKeyThree);
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="HomePage.jsp"">Delight Collections</a>
+            <a class="navbar-brand" href="CustomerHomePage.jsp"">Delight Collections</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="HomePage.jsp">Home</a></li>
-             <!--   <li><a href="#">Contact</a></li>  -->
-               <li><a href="ViewFormalShirtsPage.jsp">View Formals</a></li>
-                  <li><a href="ViewCasualShirtsPage.jsp">View Casuals</a></li>
-                  <li><a href="ViewJeansPage.jsp">View Jeans</a></li>
+              <li class="active"><a href="CustomerHomePage.jsp">Home</a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -86,15 +90,14 @@ imageThree = imagesService.getServingUrl(blobKeyThree);
                 </ul>
               </li>
             </ul>
-             <ul class="nav navbar-nav navbar-right">
-      <li><a href="AdministratorLogInPage.html"><span class="glyphicon glyphicon-log-in"></span> Admin Login</a></li> 
-              <li><a href="RegistrationForm.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="CustomerLogInPage.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> 
+            <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><b>Welcome <%= customer %></b></a></li>
+      <li><a href="adminlogout"><span class="glyphicon glyphicon-log-out"></span> LogOut</a></li> 
             </ul>
           </div>
         </div>
       </nav>
-      
+          
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
